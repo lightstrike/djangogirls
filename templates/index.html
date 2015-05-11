@@ -37,7 +37,7 @@
 
                     <h2>Mission</h2>
                     <p>
-                        Our goal is to bring more amazing women into the world of technology and increase the diversity in the Django community. We believe that technology is for people and everyone should be able to build it. We are making technology more approchable by creating simple tools and resources designed with empathy.
+                        Our goal is to bring more amazing women into the world of technology and increase the diversity in the Django community. We believe that technology is for people and everyone should be able to build it. We are making technology more approachable by creating simple tools and resources designed with empathy.
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -83,7 +83,9 @@
                 <div class="col-md-12">
                     <h2>Past events</h2>
                     {% for event in past_events %}
-                        <a href="/{{ event.eventpage.url }}">{{ event.city }}, {{ event.date }}</a>
+                        <a href="{% if event.eventpage.is_live %}/{{ event.eventpage.url }}{% endif %}">
+                            {{ event.city }}, {{ event.date }}
+                        </a>
                     {% endfor %}
                 </div>
             </div>
